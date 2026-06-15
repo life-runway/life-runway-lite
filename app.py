@@ -68,8 +68,8 @@ def format_man(value: float) -> str:
 # ヘッダー
 # ---------------------------------------------------------------------------
 
-st.title("Life Runway Lite")
-st.subheader("海外移住生活シミュレーター（簡易版）")
+st.title("海外移住生活シミュレーター")
+st.caption("by Life Runway")
 
 st.markdown(
     "海外移住後の生活費、日本帰国、年金、手元資産をもとに、"
