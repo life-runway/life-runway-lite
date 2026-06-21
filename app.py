@@ -148,7 +148,7 @@ def format_man(value: float) -> str:
 # ヘッダー
 # ---------------------------------------------------------------------------
 
-st.title("海外移住生活シミュレーター（簡易版）")
+st.title("海外移住 資産寿命シミュレーター（簡易版）")
 
 st.markdown(
     "海外移住後の生活費、日本帰国、年金、手元資産をもとに、"
@@ -225,6 +225,11 @@ overseas_monthly_cost = slider_with_steppers(
     default=30,
     step=1,
     key="overseas_monthly_cost",
+)
+st.caption(
+    "海外生活中の月額生活費が分からない場合は、"
+    "[タイ移住 月額生活費シミュレーター](https://life-spending-designer-lite-liferunway.streamlit.app/)"
+    "で目安を試算できます。"
 )
 
 # 6. 日本に戻る予定
