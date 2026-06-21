@@ -227,9 +227,9 @@ overseas_monthly_cost = slider_with_steppers(
     key="overseas_monthly_cost",
 )
 st.caption(
-    "海外生活中の月額生活費が分からない場合は、"
+    "タイ移住を想定している場合は、"
     "[タイ移住 月額生活費シミュレーター](https://life-spending-designer-lite-liferunway.streamlit.app/)"
-    "で目安を試算できます。"
+    "で月額生活費の目安を確認できます。"
 )
 
 # 6. 日本に戻る予定
