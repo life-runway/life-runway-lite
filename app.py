@@ -12,7 +12,7 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-from comments import generate_comments
+from comments import CommentSet, generate_comments
 from simulator import (
     END_AGE,
     IncomeStream,
@@ -451,11 +451,23 @@ if calc:
 # 結果表示
 # ---------------------------------------------------------------------------
 
+def _get_comment_set() -> CommentSet:
+    """session_state の CommentSet を返す。コード更新前の旧形式は再生成する。"""
+    comment_set = st.session_state["comment_set"]
+    if not hasattr(comment_set, "summary"):
+        comment_set = generate_comments(
+            st.session_state["sim_input"],
+            st.session_state["result"],
+        )
+        st.session_state["comment_set"] = comment_set
+    return comment_set
+
+
 def render_results() -> None:
     """セッションに保存された計算結果を仕様の順番で表示する。"""
     sim_input: SimulationInput = st.session_state["sim_input"]
     result = st.session_state["result"]
-    comment_set = st.session_state["comment_set"]
+    comment_set = _get_comment_set()
 
     prob_pct = round(result.survival_probability * 100)
     target = result.target_age
